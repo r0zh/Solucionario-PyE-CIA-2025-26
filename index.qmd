@@ -1,0 +1,7 @@
+---
+title: "Solucionario PyE - CIA 2025/26"
+---
+
+- [Tema 1](Ejercicios-t1.qmd)
+
+- [Tema 2](Ejercicios-t2.qmd)

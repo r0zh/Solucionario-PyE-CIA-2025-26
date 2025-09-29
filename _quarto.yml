@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "SolucionarioPyE"
+  navbar:
+    left:
+      - href: Ejercicios-t1.qmd
+        text: Tema 1
+      - href: Ejercicios-t2.qmd
+        text: Tema 2
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    toc: true
+
+
+

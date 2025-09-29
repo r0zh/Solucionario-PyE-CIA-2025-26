@@ -1,0 +1,758 @@
+---
+title: "Estadística Descriptiva - Ejercicios Tema 1"
+---
+
+```{r}
+# Librerías y configuración
+library(qcc) # Usado para diagrama de pareto
+library(RColorBrewer)
+coul <- brewer.pal(8, "Set2") # Paleta de colores para diagramas
+```
+
+# Ejercicios Básicos
+
+## Ejercicio 1
+
+La fiabilidad de un ordenador se mide en términos de la vida de un componente de hardware específico (por ejemplo, la unidad de disco). Con objeto de estimar la fiabilidad de un sistema en particular, se prueban 100 componentes de un ordenador hasta que fallan, y se registra su vida.
+
+a)  Determinar la población de interés, los individuos y la muestra.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Población: Componentes de ordenadores
+
+Individuos: Cada componente
+
+Muestra: 100 componentes
+:::
+
+b)  Determinar el carácter, su tipo y las posibles modalidades.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Carácter ($N$): Tiempo de vida
+
+Tipo: Cuantitativo continuo
+
+Posibles modalidaes: Cualquier valor real
+:::
+
+c)  ¿Cómo podría utilizarse la información de la muestra para estimar la fiabilidad del sistema?
+
+::: {.callout-tip title="Solución" collapse="true"}
+Podríamos obtener la media del tiempo de vida y así poder estimar aproximadamente cuanto durará cada componente.
+:::
+
+<br>
+
+## Ejercicio 2
+
+Para cada uno de los siguientes conjuntos de datos, indique si son cualitativos o cuantitativos y describa las distintas modalidades.
+
+a)  Tiempos de llegada de 16 ondas sísmicas reflejadas.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Cuantitativo continuo.
+:::
+
+b)  Marcas de calculadoras empleadas por 100 estudiantes de Ingeniería.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Cualitativo nominal
+:::
+
+c)  Número de caracteres impresos por línea de salida de computadora en 20 impresoras de línea. Compañía aérea.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Cuantitativo discreto
+:::
+
+<br>
+
+## Ejercicio 3
+
+La siguiente tabla recoge algunos de los datos recogidos durante 50 días, del número de correos electrónicos ($x_i$) gestionados por el administrativo de una empresa.
+
+![](images/paste-1.png){fig-align="center"}
+
+a)  Interprete y complete los datos de la tabla.
+
+::: {.callout-tip title="Solución" collapse="true"}
+| $x_i$     | $n_i$ | $f_i$ | $N_i$ | $F_i$ |
+|-----------|-------|-------|-------|-------|
+| \[0,20)   | 4     | 0.08  | 4     | 0.08  |
+| (20,40\]  | 7     | 0.14  | 11    | 0.22  |
+| (40,50\]  | 10    | 0.2   | 21    | 0.42  |
+| (50,60\]  | 9     | 0.18  | 30    | 0.6   |
+| (60,70\]  | 8     | 0.16  | 38    | 0.76  |
+| (70,90\]  | 7     | 0.14  | 45    | 0.9   |
+| (90,100\] | 5     | 0.1   | 50    | 1     |
+:::
+
+b)  Represente gráficamente la distribución de los datos.
+
+::: {.callout-tip title="Solución en R" collapse="true"}
+```{r}
+#| label: fig-histograma-correos
+#| fig-align: center
+
+# Valores de los intervalos y sus frecuencias según la tabla mostrada
+intervalos <- c("[0,20)", "(20,40]", "(40,50]", "(50,60]", "(60,70]", "(70,90]", "(90,100]")
+frecuencias <- c(4, 7, 10, 9, 8, 7, 5)
+
+# Pintar el histograma
+barplot(frecuencias,
+    names.arg = intervalos,
+    col = coul,
+    border = "black",
+    xlab = "Intervalos",
+    ylab = "Frecuencia absoluta",
+    main = "Histograma de frecuencias"
+)
+```
+:::
+
+c)  Calcule la Media, la Mediana y la Moda de la distribución de los datos.
+
+::: {.callout-tip title="Solución" collapse="true"}
+**Media**:
+
+$$
+\sum{x_i \cdot f_i} = 10 \cdot 0.08 + 30 \cdot 0.14 + 45 \cdot 0.2 + 55 \cdot 0.18 + 65 \cdot 0.16 + 80 \cdot 0.14 + 95 \cdot 0.1 = 55
+$$
+
+**Mediana**:
+
+Debemos utilizar la formula de la mediana para datos agrupadoss:
+
+$$
+Me = L_{i-1} + \frac{\frac{N}{2} - N_{i-1}}{n_i} \cdot a_i
+$$
+
+$$
+N = 50 \rightarrow \frac{N}{2} = 25, L_{i-1} = 50, N_{i-1} = 21, n_i = 9, a_i = 10
+$$
+
+$$
+Me = 50 + \frac{25 - 21}{9} \cdot 10 = 50 + \frac{4}{9} \cdot 10 = 50 + 4.44 = 54.44
+$$
+
+**Moda**: Como estamos trabajando con rangos con diferentes amplitudes debemos de calcular la densidad de frecuencia:
+
+\[0,20) $\rightarrow \frac{4}{20} = 0.2$
+
+(20,40\] $\rightarrow \frac{7}{20} = 0.35$
+
+(40,50\] $\rightarrow \frac{10}{10} = 1$
+
+(50,60\] $\rightarrow \frac{9}{10} = 0.9$
+
+(60,70\] $\rightarrow \frac{8}{10} = 0.8$
+
+(70,90\] $\rightarrow \frac{7}{20} = 0.35$
+
+(90,100\] $\rightarrow \frac{5}{10} = 0.5$
+
+Por lo tanto, podemos decir que la moda es 45 o se encuentra en el intervalo (40,50\] ya que es el que tiene la mayor densidad de frecuencia.
+:::
+
+::: {.callout-tip title="Solución en R" collapse="true"}
+```{r}
+# Datos de la tabla
+n_i <- c(4, 7, 10, 9, 8, 7, 5) # Frecuencias
+x_i <- c(10, 30, 45, 55, 65, 80, 95) # Marcas de clase
+N <- sum(n_i) # Tamaño de la muestra
+f_i <- n_i / N # Frecuencias relativas
+
+# Método 1: Cálculo manual de la media (datos agrupados)
+media_manual <- sum(x_i * f_i)
+cat("Media (método manual):", media_manual, "\n\n")
+
+# Método 2: Expandir los datos para usar funciones estándar de R
+datos_expandidos <- rep(x_i, n_i)
+cat("Primeros 10 valores de los datos expandidos:", head(datos_expandidos, 10),"\n")
+
+# Ahora sí podemos usar mean() directamente
+media_con_mean <- mean(datos_expandidos)
+cat("Media (usando mean):", media_con_mean, "\n\n")
+
+# IMPORTANTE: Para la mediana, los datos expandidos dan un resultado aproximado
+# porque usan las marcas de clase, no la distribución real dentro de cada intervalo
+mediana_aproximada <- median(datos_expandidos)
+cat("Mediana aproximada (marcas de clase):", mediana_aproximada, "\n\n")
+
+# Para la mediana real de datos agrupados, usamos la fórmula:
+# Me = L_{i-1} + ((N/2 - N_{i-1})/n_i) * a_i
+# Donde N/2 = 25, que cae en el intervalo [50,60) con L_{i-1}=50, N_{i-1}=21, n_i=9, a_i=10
+mediana_real <- N + ((N/2 - 21)/9) * 10
+cat("Mediana real (datos agrupados):", mediana_real)
+```
+:::
+
+<br>
+
+## Ejercicio 4
+
+Detectar y clasificar los posibles datos anómalos de la siguiente muestra del tiempo (en segundos) de ejecución de 25 trabajos, en un ordenador.
+
+|      |      |      |      |      |      |      |      |      |      |
+|------|------|------|------|------|------|------|------|------|------|
+| 1.17 | 1.61 | 1.16 | 1.38 | 3.53 | 1.23 | 3.76 | 1.94 | 0.96 | 4.75 |
+| 0.15 | 2.41 | 0.71 | 0.02 | 1.59 | 0.19 | 0.82 | 0.47 | 2.16 | 2.01 |
+| 0.92 | 0.75 | 2.59 | 3.07 | 1.40 |      |      |      |      |      |
+
+::: {.callout-tip title="Solución" collapse="true"}
+Para detectar y clasificar posibles datos anómalos utilizaremos el Test de Tukey, por lo que necesitamos calcular $Q_1$, $Q_3$, $R_Q$, $I_I$, $I_S$, $E_I$ y $E_S$
+
+Primero ordenamos la tabla:
+
+0.02 0.15 0.19 0.47 0.71 0.75 0.82 0.92 0.96 1.16 1.17 1.23 1.38 1.4 1.59 1.61 1.94 2.01 2.16 2.41 2.59 3.07 3.53 3.76 4.75
+
+$Q_1$: El dato en la posición $25 \cdot 0.25 = 6.25 \approx 7$ es $0.82 \rightarrow Q_1 = 0.82$
+
+$Q_3$: El dato en la posición $25 \cdot 0.75 = 18.75 \approx 19$ es $2.16 \rightarrow Q_3 = 2.16$
+
+$R_Q = Q_3 - Q_1 = 2.16 - 0.82 = 1.34$
+
+$I_I = Q_1 - 1.5 \cdot R_Q \Rightarrow I_I = 0.82 - 1.5 \cdot 1.34 = −1.19$ $I_Q = Q_3 + 1.5 \cdot R_Q \Rightarrow I_Q = 2.16 + 1.5 \cdot 1.34 = 4.17$
+
+$E_I = Q_1 - 3 \cdot R_Q \Rightarrow E_I = 0.82 - 3 \cdot 1.34 = −3.2$ $E_Q = Q_3 + 3 \cdot R_Q \Rightarrow E_Q = 2.16 + 3 \cdot 1.34 = 6.18$
+
+Por lo tanto hay solo un dato anómalo:
+
+-   4.75, que es un dato atípico leve ($I_Q < 4.75 < E_Q$).
+:::
+
+::: {.callout-tip title="Solución en R" collapse="true"}
+```{r}
+# Datos de la muestra (en segundos)
+tiempos <- c(
+    1.17, 1.61, 1.16, 1.38, 3.53, 1.23, 3.76, 1.94, 0.96, 4.75,
+    0.15, 2.41, 0.71, 0.02, 1.59, 0.19, 0.82, 0.47, 2.16, 2.01,
+    0.92, 0.75, 2.59, 3.07, 1.40
+)
+
+# Ordenamos los datos
+cat("Datos ordenadors: ", sort(tiempos), "\n\n")
+
+# Calculamos los cuartiles
+Q1 <- quantile(tiempos, 0.25)
+Q3 <- quantile(tiempos, 0.75)
+cat("Q1:", Q1, "\nQ3:", Q3, "\n")
+
+# Rango intercuartílico
+RQ <- Q3 - Q1
+cat("Rango intercuartílico (RQ):", RQ, "\n")
+
+# Cotas interiores inferior y superior
+II <- Q1 - 1.5 * RQ
+IQ <- Q3 + 1.5 * RQ
+
+cat("Límite inferior (II):", II, "\nLímite superior (IQ):", IQ, "\n")
+
+# Cotas exteriores inferior y superior
+EI <- Q1 - 3 * RQ
+EQ <- Q3 + 3 * RQ
+
+cat("Límite exterior inferior (EI):", EI, "\nLímite exterior superior (EQ):", EQ, "\n")
+
+# Identificamos los datos anómalos
+datos_anomalos <- tiempos[tiempos < II | tiempos > IQ]
+if(length(datos_anomalos) == 0) {
+    cat("Datos atípicos leves: Ninguno\n")
+} else {
+    cat("Datos atípicos leves:", datos_anomalos, "\n")
+}
+
+# Identificamos los datos anómalos extremos
+datos_extremos <- tiempos[tiempos < EI | tiempos > EQ]
+if(length(datos_extremos) == 0) {
+    cat("Datos atípicos extremos: Ninguno\n")
+} else {
+    cat("Datos atípicos extremos:", datos_extremos, "\n")
+}
+
+# También podemos usar un diagrama de cajas y bigotes para visualizar los datos anómalos
+boxplot(tiempos, horizontal = TRUE, main = "Diagrama de cajas y bigotes de tiempos de ejecución", xlab = "Tiempo (segundos)", col = "lightblue")
+```
+:::
+
+Justifique y calcule la medida de tendencia central más representativa del conjunto total de datos y del conjunto sin los datos anómalos.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Como hemos visto en clase, la media es muy sensible a los datos anómalos, por lo que la medida de tendencia central más representativa es la mediana.
+
+Para el conjunto total de datos, la mediana es: $Me = 1.38$ (dato en la posición 13).
+
+Para el conjunto total de datos, la media es:
+
+$$
+\bar{x} = \frac{\sum{x_i \cdot n_i}}{N} = \frac{1.17 + 1.61 + ... + 3.07 + 1.40}{25} = \frac{40.75}{25} = 1.63
+$$
+:::
+
+::: {.callout-tip title="Solución en R" collapse="true"}
+```{r}
+cat("Media: ", mean(tiempos), "\n")
+cat("Mediana: ", median(tiempos), "\n")
+```
+:::
+
+<br>
+
+## Ejercicio 5
+
+Calcular los valores que se piden en función de los datos:
+
+a)  Si $N = 2$, $\bar{x} = 2.6$ y $\sigma = 1.1$, ¿cuáles son los datos de la muestra?
+
+::: {.callout-tip title="Solución" collapse="true"}
+$$
+\sigma = \sqrt{\sigma^2} = \sqrt{\sum_{i=1}^{k}{(x_i - \bar{x})^2 \cdot f_i}}
+$$
+
+$$
+1.1 = \sqrt{(x_1 - 2.6)^2 \cdot \frac{1}{2} + (x_2 - 2.6)^2 \cdot \frac{1}{2}}
+$$
+
+$$
+1.21 = \frac{(x_1 - 2.6)^2 + (x_2 - 2.6)^2}{2}
+$$
+
+$$
+2.42 = (x_1 - 2.6)^2 + (x_2 - 2.6)^2
+$$
+
+Tenemos dos incógnitas y una ecuación, por lo que necesitamos otra ecuación:
+
+$$
+\bar{x} = \frac{x_1 + x_2}{2} = 2.6 \Rightarrow x_1 + x_2 = 5.2
+$$
+
+Resolviendo el sistema de ecuaciones:
+
+$$
+\begin{cases}
+x_1 + x_2 = 5.2 \\
+(x_1 - 2.6)^2 + (x_2 - 2.6)^2 = 2.42
+\end{cases} \\
+$$
+
+$$
+\begin{aligned}
+x_2 &= 5.2 - x_1 \\
+2.42 &= (x_1 - 2.6)^2 + (5.2 - x_1 - 2.6)^2 \\
+2.42 &= (x_1 - 2.6)^2 + (2.6 - x_1)^2 \\
+2.42 &= 2(x_1 - 2.6)^2 \\
+1.21 &= (x_1 - 2.6)^2 \\
+x_1 - 2.6 &= \pm \sqrt{1.21} \\
+x_1 &= 2.6 \pm 1.1 \\
+x_1 &= 3.7 \quad \text{o} \quad x_1 = 1.5 \\
+x_2 &= 5.2 - x_1 \\
+x_2 &= 1.5 \quad \text{o} \quad x_2 = 3.7
+\end{aligned}
+$$
+
+Los datos de la muestra son: $1.5$ y $3.7$.
+:::
+
+b)  Si $CV = 0.5$, $\bar{x} = 2$ y $m_3 = 14$, ¿cuánto vale $\mu_3$?
+
+::: {.callout-tip title="Solución" collapse="true"}
+$$
+CV = \frac{\sigma}{|\bar{x}|} \Rightarrow \sigma = CV \cdot |\bar{x}|
+$$
+
+$$
+\sigma = 0.5 \cdot 2 = 1 
+$$
+
+------------------------------------------------------------------------
+
+$$
+\begin{aligned}
+\mu_3 &= \sum_{i=0}^{k}{(x_i - \bar{x})^3 \cdot f_i} = \sum_{i=0}^{k}{(x_i^3 - 3 x_i^2 \bar{x} + 3 x_i^2 \bar{x}^3 - \bar{x}^3) \cdot f_i} =\\
+&= \sum_{i=0}^{k}{x_i^3 f_i} - 3\sum_{i=0}^{k}{x_i^2 \bar{x} f_i} + 3\sum_{i=0}^{k}{x_i \bar{x}^2 f_i} - \sum_{i=0}^{k}{\bar{x}^3 f_i} =\\
+&= m_3 - 3\bar{x}m_2 + 3\bar{x}^3 - \bar{x}^3 = m_3 - 3\bar{x}m_2 + 2\bar{x}^3
+\end{aligned}
+$$
+
+------------------------------------------------------------------------
+
+$$
+m_2 = \sigma^2 + \bar{x}^2 = 1^2 + 2^2 = 5
+$$
+
+------------------------------------------------------------------------
+
+$$
+\mu_3 = m_3 - 3\bar{x}m_2 + 2\bar{x}^3 = 14 - 3 \cdot 2 \cdot 5 + 2 \cdot 2^3 = 0
+$$
+:::
+
+<br>
+
+## Ejercicio 13
+
+**Sentido crítico.** Antes de extraer conclusiones de unos resultados estadísticos, conviene examinar detenidamente los valores numéricos obtenidos. El gran número de operaciones realizadas y el volumen de datos manejados son fuentes de error que inciden en los resultados. Un poco de sentido crítico puede ayudar a determinar si unos resultados son consistentes con los datos del problema. En este ejercicio se propone una serie de casos donde el resultado numérico no es correcto. Se trata de explicar razonadamente la inconsistencia del resultado en función de los datos.
+
+a)  El número medio de accesos a una página web es $-3$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+La media no puede ser negativa, ya que el número de accesos es una variable de conteo no negativa. Esto indica un error en los datos o en los cálculos.
+:::
+
+b)  La mediana del número de hijos de las familias españolas es $2.1$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+La mediana debe ser un número entero, ya que representa el valor central en una distribución de datos discretos (número de hijos). Un valor decimal como $2.1$ no tiene sentido; si fuera decimal, solo podría ser $2.5$ cuando hay un número par de observaciones y los valores centrales son 2 y 3.
+:::
+
+c)  La moda del número de hijos es $1.5$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+La moda debe ser un número entero, ya que representa el valor más frecuente en una variable discreta como el número de hijos. Un valor decimal no es posible en este contexto.
+:::
+
+d)  El cuartil $Q_3$ es $28$ y el cuartil $Q_1$ es $32$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Esto es incorrecto porque el primer cuartil (Q1) siempre debe ser menor o igual que el tercer cuartil (Q3), ya que Q1 marca el 25% de los datos y Q3 el 75%. Por definición, Q1 ≤ Q3 en cualquier distribución.
+:::
+
+e)  El centil $P_1$ es $32$ y el decil $D_1$ es $28$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Esto es incorrecto porque el primer percentil (P1) siempre debe ser menor o igual que el primer decil (D1), ya que P1 representa el valor por debajo del cual se encuentra el 1% de los datos, mientras que D1 lo hace para el 10%. Por lo tanto, P1 ≤ D1.
+:::
+
+f)  La varianza es $-100$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+La varianza no puede ser negativa, ya que se define como el promedio de los cuadrados de las desviaciones respecto a la media, lo cual siempre resulta en un valor no negativo. Una varianza negativa indica un error en los datos, en los cálculos o en la interpretación de los resultados. Además, una dispersión negativa no tiene sentido, ya que la dispersión mide la variabilidad de los datos, que siempre es positiva o cero.
+:::
+
+g)  La media es $10$, la mediana $12$ y la desviación típica es $0$.
+
+::: {.callout-tip title="Solución" collapse="true"}
+Si la desviación típica es $0$, significa que todos los valores de la muestra son iguales a la media. Por lo tanto, si la media es $10$, la mediana también debe ser $10$. Tener una mediana de $12$ es inconsistente con una desviación típica de $0$.
+:::
+
+h)  La expresión $g_2 + 3$ toma un valor negativo.
+
+::: {.callout-tip title="Solución" collapse="true"}
+$g_2 = \frac{\mu_4}{\sigma^4} - 3$
+
+Como $\mu_4 = \sum{(x_i - \bar{x})^4} \cdot f_i \geq 0$ y $\sigma^4 > 0$, entonces:
+
+$g_2 + 3 = \frac{\mu_4}{\sigma^4} \geq 0$
+
+Por tanto, $g_2 + 3$ no puede ser negativo.
+:::
+
+En ocasiones, determinar si los resultados de un problema son coherentes con los datos, no es tan directo como en los apartados anteriores. Por ejemplo, supongamos que en una muestra de $200$ observaciones, se obtiene que la media es $35$ y la varianza es $7$.
+
+i)  ¿Son coherentes estos resultados, si sabemos que el $23\,\%$ de las observaciones toma el valor $0$? Intenta razonar la respuesta.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Si el $23\,\%$ de las observaciones toma el valor $0$, entonces hay $0.23 \cdot 200 = 46$ observaciones con valor $0$. Para que la media sea 35 con tantos ceros, los valores restantes deben ser muy altos. Pero para que la varianza sea tan pequeña (7), los datos no pueden estar muy dispersos, por lo que tenemos una incoherencia en los datos.
+:::
+
+j)  Calcule el valor de la varianza de la muestra, sin considerar los valores nulos, pues el resultado indica la incoherencia de los datos del problema.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Para poder calcular la varianza sin considerar los valores nulos, necesitamos calcular los momentos ordinarios $m_1'$ y $m_2'$ de las $154$ observaciones restantes (200 - 46 = 154).
+
+La media de las $200$ observaciones es $35$, por lo que la suma total de todas las observaciones es:
+
+$$
+\sum_{i=0}^k{x_i} = \bar{x} \cdot N = 35 \cdot 200 = 7000
+$$
+
+Si eliminamos las $46$ observaciones con valor $0$, la suma de las restantes $154$ observaciones debe ser $7000$.
+
+$$
+\sum{x_i'} = 7000 \quad \text{donde} \quad N' = 154
+$$
+
+Por lo tanto, la media de las $154$ observaciones restantes es:
+
+$$
+m_1' = \bar{x}' = \frac{\sum{x_i'}}{N'} = \frac{7000}{154} \approx 45.45
+$$
+
+Sabemos que la varianza de las $200$ observaciones es $7$, por lo que:
+
+$$
+\sigma^2 = 7 = \sum{x_i^2 \cdot f_i} - \bar{x}^2 = \sum{x_i^2 \cdot f_i} - 35^2 \Rightarrow \sum{x_i^2 \cdot f_i} = 7 + 1225 = 1232
+$$
+
+$$
+\sum{x_i^2 \cdot f_i} = 1232 \Rightarrow \sum{x_i^2} = 1232 \cdot 200 = 246400
+$$
+
+Si eliminamos las $46$ observaciones con valor $0$, la suma de los cuadrados de las restantes $154$ observaciones debe ser también $246400$, entonces:
+
+$$
+m_2' = \frac{\sum{(x_i')^2}}{N'} = \frac{246400}{154} = 1600
+$$
+
+Por lo tanto, la varianza de las $154$ observaciones restantes es:
+
+$$
+(\sigma')^2 = m_2' - (m_1')^2 = 1600 - 45.45^2 \approx −465.70
+$$
+
+La varianza de la muestra sin considerar los valores nulos es negativa, lo cual no tiene sentido, por lo que los resultados no son coherentes con los datos del problema.
+:::
+
+<br>
+
+# Ejercicios de Repaso
+
+## Ejercicio 8
+
+Se han medido los pesos y las estaturas de 8 personas, obteniéndose los datos siguientes:
+
+| Personas       |   A |   B |   C |   D |   E |   F |   G |   H |
+|----------------|----:|----:|----:|----:|----:|----:|----:|----:|
+| Pesos en Kg.   |  65 |  60 |  65 |  63 |  68 |  70 |  66 |  71 |
+| Alturas en cm. | 170 | 150 | 168 | 170 | 175 | 171 | 160 | 180 |
+
+¿qué variable está más dispersa, el peso o la altura?
+
+::: {.callout-tip title="Solución" collapse="false"}
+Para comparar dispersiones utilizamos el coeficiente de variación ($CV$):
+
+$$
+CV = \frac{\sigma}{|\bar{x}|} 
+$$
+
+$$
+\sigma = \sqrt{\sum\frac{(x_i - \bar{x})^2 \cdot n_i}{N}} = \sqrt{\sum{(x_i - \bar{x})^2 \cdot f_i}} 
+$$
+
+------------------------------------------------------------------------
+
+$$
+\bar{x}_{pesos} = \frac{65+60+65+63+68+70+66+71}{8} = 66
+$$
+
+$$
+\bar{x}_{alturas} = \frac{170+150+168+170+175+171+160+180}{8} = 168
+$$
+
+------------------------------------------------------------------------
+
+$$
+\sigma_{pesos} = \sqrt{\frac{(65-66)^2 + ... + (71-66)^2}{8}} = \sqrt{\frac{92}{8}} \approx 10.22
+$$
+
+$$
+\sigma_{alturas} = \sqrt{\frac{(170-168)^2 + ... + (180-168)^2}{8}} = \sqrt{\frac{598}{8}} = 74.75
+$$
+
+------------------------------------------------------------------------
+
+$$
+CV_{pesos} = \frac{10.22}{66} = 0.155
+$$
+
+$$
+CV_{alturas} = \frac{74.75}{168} = 0.445
+$$
+
+Por lo tanto la variable que está más dispersa es la altura, ya que su coeficiente de variación es mayor.
+:::
+
+<br>
+
+## Ejercicio 12
+
+Si $X$ es una variable estadística e $Y = X - \bar{x}$, determine qué afirmaciones son verdaderas:
+
+a)  La media de $Y$ es 0.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Si $\bar{x}$ es la media de la variable $X$, entonces $a + b\bar{x}$ es la media aritmética de $a + bX$ $a = -\bar{x}$, $b = 1$ $\Rightarrow$ La media de la variable $Y$ es $-\bar{x} + \bar{x} = 0$
+
+Por lo tanto esta afirmación es verdadera ✅
+:::
+
+b)  La media de $X$ coincide con la media de $Y$.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Falso ❌, a menos que la media de la variable $X$ sea 0
+:::
+
+c)  $Y$ es la variable tipificada de $X$.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Falso ❌. Para que $Y$ sea la variable tipificada de $X$, la fórmula debería ser $Y = \frac{X - \bar{x}}{\sigma}$, donde $\sigma$ es la desviación típica de $X$.
+:::
+
+d)  La varianza de $X$ y la varianza de $Y$ coinciden.
+
+::: {.callout-tip title="Solución" collapse="false"}
+Verdadero✅. La varianza y la desviación típica son independientes del cambio de origen.
+:::
+
+<br>
+
+## Ejercicio 14
+
+En cada caso, determinar el tipo de distribución, organizar los datos en una tabla de frecuencias y representar gráficamente la distribución. También se pide calcular algunas medidas de tendencia central, medidas de dispersión, de simetría y de apuntamiento.
+
+a)  Tiempo de espera (redondeado en minutos) de un conmutador, para cierto tren subterráneo:
+
+::: {style="text-align:center"}
+```         
+3 4 1 0 2 2
+```
+:::
+
+::: {.callout-tip title="Solución" collapse="false"}
+**Tipo de distribución**: La variable es cuantitativa discreta, ya que el tiempo de espera se mide en minutos y no toma valores intermedios (como 2.5 minutos).
+
+**Tabla de frecuencias**:
+
+| Tiempo de espera (min) | Frecuencia absoluta | Frecuencia relativa | Frecuencia acumulada | Frecuencia relativa acumulada |
+|:--:|:--:|:--:|:--:|:--:|
+| 0 | 1 | 0.17 | 1 | 0.17 |
+| 1 | 1 | 0.17 | 2 | 0.34 |
+| 2 | 2 | 0.33 | 4 | 0.67 |
+| 3 | 1 | 0.17 | 5 | 0.84 |
+| 4 | 1 | 0.17 | 6 | 1 |
+
+**Medidas de tendencia central**:
+
+-   Media: $\bar{x} = \frac{0 \cdot 1 + 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 1 + 4 \cdot 1}{6} = \frac{0 + 1 + 4 + 3 + 4}{6} = \frac{12}{6} = 2$
+
+-   Mediana: $Me = 2$ (dato en la posición 3.5)
+
+-   Moda: $Mo = 2$ (valor más frecuente)
+
+**Medidas de dispersión**:
+
+-   Varianza: $\sigma^2 = m_2 - m_1^2 = \frac{0^2 \cdot 1 + 1^2 \cdot 1 + 2^2 \cdot 2 + 3^2 \cdot 1 + 4^2 \cdot 1}{6} - 2^2 \approx 1.67$
+
+-   Desviación típica: $\sigma = \sqrt{1.67} \approx 1.29$
+
+-   Varianza muestral: $s^2 = \frac{6}{5} \cdot 1.67 \approx 2$
+
+-   Desviación típica muestral: $s = \sqrt{2} \approx 1.41$
+
+**Medidas de simetría y apuntamiento**:
+
+-   Como $\bar{x} = Me = Mo$, la distribución es simétrica (asimetría $g_1 = 0$).
+
+-   Curtosis: $g_2 = \frac{\mu_4}{\sigma^4} - 3 < 0 \Rightarrow$ menos apuntamiento que la normal.
+
+$$
+\mu_4 = \sum{(x_i - \bar{x})^4 \cdot f_i} = \frac{(0-2)^4 \cdot 1 + ... + (4-2)^4 \cdot 1}{6} \approx 5.67
+$$
+
+$$
+g_2 = \frac{5.67}{(1.29)^4} - 3 \approx -0.96
+$$
+:::
+
+::: {.callout-tip title="Solución en R" collapse="false"}
+```{r}
+# Datos
+tiempos_espera <- c(3, 4, 1, 0, 2, 2)
+
+# Representación gráfica
+barplot(table(tiempos_espera), main = "Tiempo de espera en minutos", xlab = "Tiempo de espera (min)", ylab = "Frecuencia", col = coul)
+
+# Medidas de tendencia central
+media <- mean(tiempos_espera)
+mediana <- median(tiempos_espera)
+moda <- sort(tiempos_espera)[length(tiempos_espera) / 2]
+cat("Media: ", media, ", Mediana: ", mediana, ", Moda: ", moda,"\n")
+
+# Medidas de dispersión
+varp=function(x) var(x)*(length(x)-1)/length(x) # varianza poblacional
+
+varianza <- varp(tiempos_espera) # Varianza poblacional
+desviacion_tipica <- sqrt(varianza)
+varianza_muestral <- var(tiempos_espera) # Varianza muestral
+desviacion_tipica_muestral <- sd(tiempos_espera)
+
+cat("Varianza: ", varianza, ", Desviación típica: ", desviacion_tipica,"\n")
+cat("Varianza muestral: ", varianza_muestral, ", Desviación típica muestral: ", desviacion_tipica_muestral,"\n")
+
+# Medidas de simetría y apuntamiento
+# para calcular g1 y g2 necesitamos definir las funciones de momento central y desviación típica poblacional
+sdp=function(x) sqrt(varp(x)) # desviación típica poblacional
+gmomento=function(x,c,r) mean((x-c)^r) # momento general
+cmomento=function(x,r) gmomento(x,mean(x),r) # momento central de orden r
+
+g1=function(x) cmomento(x,3)/sdp(x)^3 # asimetría
+g2=function(x) cmomento(x,4)/sdp(x)^4-3 # curtosis
+
+asimetria <- g1(tiempos_espera)
+curtosis <- g2(tiempos_espera)
+if(asimetria > 0) {
+    cat("La distribución es asimétrica positiva (g1 =", asimetria, ")\n")
+} else if(asimetria < 0) {
+    cat("La distribución es asimétrica negativa (g1 =", asimetria, ")\n")
+} else {
+    cat("La distribución es simétrica (g1 =", asimetria, ")\n")
+}
+
+if(curtosis > 0) {
+    cat("La distribución tiene más apuntamiento que la normal (g2 =", curtosis, ")\n")
+} else if(curtosis < 0) {
+    cat("La distribución tiene menos apuntamiento que la normal (g2 =", curtosis, ")\n")
+} else {
+    cat("La distribución tiene el mismo apuntamiento que la normal (g2 =", curtosis, ")\n")
+}
+```
+:::
+
+b)  En ciertos entornos, los aceros inoxidables son especialmente susceptibles al agrietamiento. A continuación se relacionan las causas asignables y el número de casos detectados correspondientes a estas causas, en un estudio realizado entre 200 aceros observados.
+
+::: {style="text-align:center"}
+```         
+Entorno húmedo         144
+Entorno seco            45
+Defectos de materiales   4
+Defectos de soldadura    7
+```
+:::
+
+::: {.callout-tip title="Solución" collapse="false"}
+La variable es cualitativa nominal. De medidas de posición solo vale la moda. Para representarla gráficamente, podemos usar diagrama de pareto:
+
+```{r}
+# Datos
+causas <- c("Entorno húmedo", "Entorno seco", "Defectos de materiales", "Defectos de soldadura")
+frecuencias <- c(144, 45, 4, 7)
+
+# Ordenar los datos de mayor a menor
+orden <- order(frecuencias, decreasing = TRUE)
+causas <- causas[orden]
+frecuencias <- frecuencias[orden]
+
+# Crear el gráfico de pareto
+pareto.chart(frecuencias, names.arg = causas, col = coul, main = "Diagrama de Pareto de causas de agrietamiento en aceros", ylab = "Número de casos", xlab = "Causas")
+```
+:::
+
+c)  Contenido de carbono (%) del carbón mineral:
+
+```         
+87  86  85  87  86  87  86  81  77  85
+86  84  83  83  82  84  83  79  82  73
+```
+
+d)  Consumo de combustible (litros/100 km a 90 km/h) de seis automóviles de la misma marca:
+
+```         
+6'7  6'3  6'5  6'5  6'4  6'6
+```
+
+e)  Número de hojas de papel, por encima y por debajo del número deseado de 100 por paquete, en un proceso de empaquetado:
+
+```         
+0  -1  0  0  1  1  2  0  1  0
+```
