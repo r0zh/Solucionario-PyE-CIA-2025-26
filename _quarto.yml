@@ -9,13 +9,13 @@ website:
         text: Tema 1
       - href: Ejercicios-t2.qmd
         text: Tema 2
-
+    right: 
+      - href: https://github.com/r0zh/Solucionario-PyE-CIA-2025-26
+        icon: github
+        text: Código fuente
 format:
   html:
     theme:
       - cosmo
       - brand
     toc: true
-
-
-
