@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estadística Descriptiva - Ejercicios Tema 1 – SolucionarioPyE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">SolucionarioPyE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./Ejercicios-t1.html" aria-current="page"> 
+<span class="menu-text">Tema 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Ejercicios-t2.html"> 
+<span class="menu-text">Tema 2</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ejercicios-básicos" id="toc-ejercicios-básicos" class="nav-link active" data-scroll-target="#ejercicios-básicos">Ejercicios Básicos</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio 3</a></li>
+  <li><a href="#ejercicio-4" id="toc-ejercicio-4" class="nav-link" data-scroll-target="#ejercicio-4">Ejercicio 4</a></li>
+  <li><a href="#ejercicio-5" id="toc-ejercicio-5" class="nav-link" data-scroll-target="#ejercicio-5">Ejercicio 5</a></li>
+  <li><a href="#ejercicio-13" id="toc-ejercicio-13" class="nav-link" data-scroll-target="#ejercicio-13">Ejercicio 13</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-de-repaso" id="toc-ejercicios-de-repaso" class="nav-link" data-scroll-target="#ejercicios-de-repaso">Ejercicios de Repaso</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-8" id="toc-ejercicio-8" class="nav-link" data-scroll-target="#ejercicio-8">Ejercicio 8</a></li>
+  <li><a href="#ejercicio-12" id="toc-ejercicio-12" class="nav-link" data-scroll-target="#ejercicio-12">Ejercicio 12</a></li>
+  <li><a href="#ejercicio-14" id="toc-ejercicio-14" class="nav-link" data-scroll-target="#ejercicio-14">Ejercicio 14</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Estadística Descriptiva - Ejercicios Tema 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías y configuración</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc) <span class="co"># Usado para diagrama de pareto</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Package 'qcc' version 2.7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Type 'citation("qcc")' for citing this R package in publications.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>coul <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"Set2"</span>) <span class="co"># Paleta de colores para diagramas</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="ejercicios-básicos" class="level1">
+<h1>Ejercicios Básicos</h1>
+<section id="ejercicio-1" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h2>
+<p>La fiabilidad de un ordenador se mide en términos de la vida de un componente de hardware específico (por ejemplo, la unidad de disco). Con objeto de estimar la fiabilidad de un sistema en particular, se prueban 100 componentes de un ordenador hasta que fallan, y se registra su vida.</p>
+<ol type="a">
+<li>Determinar la población de interés, los individuos y la muestra.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Población: Componentes de ordenadores</p>
+<p>Individuos: Cada componente</p>
+<p>Muestra: 100 componentes</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Determinar el carácter, su tipo y las posibles modalidades.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Carácter (<span class="math inline">\(N\)</span>): Tiempo de vida</p>
+<p>Tipo: Cuantitativo continuo</p>
+<p>Posibles modalidaes: Cualquier valor real</p>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>¿Cómo podría utilizarse la información de la muestra para estimar la fiabilidad del sistema?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Podríamos obtener la media del tiempo de vida y así poder estimar aproximadamente cuanto durará cada componente.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h2>
+<p>Para cada uno de los siguientes conjuntos de datos, indique si son cualitativos o cuantitativos y describa las distintas modalidades.</p>
+<ol type="a">
+<li>Tiempos de llegada de 16 ondas sísmicas reflejadas.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cuantitativo continuo.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Marcas de calculadoras empleadas por 100 estudiantes de Ingeniería.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cualitativo nominal</p>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>Número de caracteres impresos por línea de salida de computadora en 20 impresoras de línea. Compañía aérea.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cuantitativo discreto</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-3" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-3">Ejercicio 3</h2>
+<p>La siguiente tabla recoge algunos de los datos recogidos durante 50 días, del número de correos electrónicos (<span class="math inline">\(x_i\)</span>) gestionados por el administrativo de una empresa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ol type="a">
+<li>Interprete y complete los datos de la tabla.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(n_i\)</span></th>
+<th><span class="math inline">\(f_i\)</span></th>
+<th><span class="math inline">\(N_i\)</span></th>
+<th><span class="math inline">\(F_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[0,20)</td>
+<td>4</td>
+<td>0.08</td>
+<td>4</td>
+<td>0.08</td>
+</tr>
+<tr class="even">
+<td>(20,40]</td>
+<td>7</td>
+<td>0.14</td>
+<td>11</td>
+<td>0.22</td>
+</tr>
+<tr class="odd">
+<td>(40,50]</td>
+<td>10</td>
+<td>0.2</td>
+<td>21</td>
+<td>0.42</td>
+</tr>
+<tr class="even">
+<td>(50,60]</td>
+<td>9</td>
+<td>0.18</td>
+<td>30</td>
+<td>0.6</td>
+</tr>
+<tr class="odd">
+<td>(60,70]</td>
+<td>8</td>
+<td>0.16</td>
+<td>38</td>
+<td>0.76</td>
+</tr>
+<tr class="even">
+<td>(70,90]</td>
+<td>7</td>
+<td>0.14</td>
+<td>45</td>
+<td>0.9</td>
+</tr>
+<tr class="odd">
+<td>(90,100]</td>
+<td>5</td>
+<td>0.1</td>
+<td>50</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Represente gráficamente la distribución de los datos.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución en R">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución en R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de los intervalos y sus frecuencias según la tabla mostrada</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>intervalos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"[0,20)"</span>, <span class="st">"(20,40]"</span>, <span class="st">"(40,50]"</span>, <span class="st">"(50,60]"</span>, <span class="st">"(60,70]"</span>, <span class="st">"(70,90]"</span>, <span class="st">"(90,100]"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>frecuencias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">5</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pintar el histograma</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(frecuencias,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names.arg =</span> intervalos,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> coul,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">border =</span> <span class="st">"black"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span> <span class="st">"Intervalos"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Frecuencia absoluta"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Histograma de frecuencias"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-histograma-correos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histograma-correos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Ejercicios-t1_files/figure-html/fig-histograma-correos-1.png" id="fig-histograma-correos" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-histograma-correos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>Calcule la Media, la Mediana y la Moda de la distribución de los datos.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Media</strong>:</p>
+<p><span class="math display">\[
+\sum{x_i \cdot f_i} = 10 \cdot 0.08 + 30 \cdot 0.14 + 45 \cdot 0.2 + 55 \cdot 0.18 + 65 \cdot 0.16 + 80 \cdot 0.14 + 95 \cdot 0.1 = 55
+\]</span></p>
+<p><strong>Mediana</strong>:</p>
+<p>Debemos utilizar la formula de la mediana para datos agrupadoss:</p>
+<p><span class="math display">\[
+Me = L_{i-1} + \frac{\frac{N}{2} - N_{i-1}}{n_i} \cdot a_i
+\]</span></p>
+<p><span class="math display">\[
+N = 50 \rightarrow \frac{N}{2} = 25, L_{i-1} = 50, N_{i-1} = 21, n_i = 9, a_i = 10
+\]</span></p>
+<p><span class="math display">\[
+Me = 50 + \frac{25 - 21}{9} \cdot 10 = 50 + \frac{4}{9} \cdot 10 = 50 + 4.44 = 54.44
+\]</span></p>
+<p><strong>Moda</strong>: Como estamos trabajando con rangos con diferentes amplitudes debemos de calcular la densidad de frecuencia:</p>
+<p>[0,20) <span class="math inline">\(\rightarrow \frac{4}{20} = 0.2\)</span></p>
+<p>(20,40] <span class="math inline">\(\rightarrow \frac{7}{20} = 0.35\)</span></p>
+<p>(40,50] <span class="math inline">\(\rightarrow \frac{10}{10} = 1\)</span></p>
+<p>(50,60] <span class="math inline">\(\rightarrow \frac{9}{10} = 0.9\)</span></p>
+<p>(60,70] <span class="math inline">\(\rightarrow \frac{8}{10} = 0.8\)</span></p>
+<p>(70,90] <span class="math inline">\(\rightarrow \frac{7}{20} = 0.35\)</span></p>
+<p>(90,100] <span class="math inline">\(\rightarrow \frac{5}{10} = 0.5\)</span></p>
+<p>Por lo tanto, podemos decir que la moda es 45 o se encuentra en el intervalo (40,50] ya que es el que tiene la mayor densidad de frecuencia.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución en R">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución en R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de la tabla</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n_i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">5</span>) <span class="co"># Frecuencias</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x_i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">55</span>, <span class="dv">65</span>, <span class="dv">80</span>, <span class="dv">95</span>) <span class="co"># Marcas de clase</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">sum</span>(n_i) <span class="co"># Tamaño de la muestra</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>f_i <span class="ot">&lt;-</span> n_i <span class="sc">/</span> N <span class="co"># Frecuencias relativas</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Método 1: Cálculo manual de la media (datos agrupados)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>media_manual <span class="ot">&lt;-</span> <span class="fu">sum</span>(x_i <span class="sc">*</span> f_i)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Media (método manual):"</span>, media_manual, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Media (método manual): 55 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Método 2: Expandir los datos para usar funciones estándar de R</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>datos_expandidos <span class="ot">&lt;-</span> <span class="fu">rep</span>(x_i, n_i)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Primeros 10 valores de los datos expandidos:"</span>, <span class="fu">head</span>(datos_expandidos, <span class="dv">10</span>),<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Primeros 10 valores de los datos expandidos: 10 10 10 10 30 30 30 30 30 30 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ahora sí podemos usar mean() directamente</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>media_con_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(datos_expandidos)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Media (usando mean):"</span>, media_con_mean, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Media (usando mean): 55 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTANTE: Para la mediana, los datos expandidos dan un resultado aproximado</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># porque usan las marcas de clase, no la distribución real dentro de cada intervalo</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mediana_aproximada <span class="ot">&lt;-</span> <span class="fu">median</span>(datos_expandidos)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mediana aproximada (marcas de clase):"</span>, mediana_aproximada, <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mediana aproximada (marcas de clase): 55 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para la mediana real de datos agrupados, usamos la fórmula:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Me = L_{i-1} + ((N/2 - N_{i-1})/n_i) * a_i</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Donde N/2 = 25, que cae en el intervalo [50,60) con L_{i-1}=50, N_{i-1}=21, n_i=9, a_i=10</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mediana_real <span class="ot">&lt;-</span> N <span class="sc">+</span> ((N<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">21</span>)<span class="sc">/</span><span class="dv">9</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mediana real (datos agrupados):"</span>, mediana_real)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mediana real (datos agrupados): 54.44444</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-4" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-4">Ejercicio 4</h2>
+<p>Detectar y clasificar los posibles datos anómalos de la siguiente muestra del tiempo (en segundos) de ejecución de 25 trabajos, en un ordenador.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>1.17</td>
+<td>1.61</td>
+<td>1.16</td>
+<td>1.38</td>
+<td>3.53</td>
+<td>1.23</td>
+<td>3.76</td>
+<td>1.94</td>
+<td>0.96</td>
+<td>4.75</td>
+</tr>
+<tr class="even">
+<td>0.15</td>
+<td>2.41</td>
+<td>0.71</td>
+<td>0.02</td>
+<td>1.59</td>
+<td>0.19</td>
+<td>0.82</td>
+<td>0.47</td>
+<td>2.16</td>
+<td>2.01</td>
+</tr>
+<tr class="odd">
+<td>0.92</td>
+<td>0.75</td>
+<td>2.59</td>
+<td>3.07</td>
+<td>1.40</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Para detectar y clasificar posibles datos anómalos utilizaremos el Test de Tukey, por lo que necesitamos calcular <span class="math inline">\(Q_1\)</span>, <span class="math inline">\(Q_3\)</span>, <span class="math inline">\(R_Q\)</span>, <span class="math inline">\(I_I\)</span>, <span class="math inline">\(I_S\)</span>, <span class="math inline">\(E_I\)</span> y <span class="math inline">\(E_S\)</span></p>
+<p>Primero ordenamos la tabla:</p>
+<p>0.02 0.15 0.19 0.47 0.71 0.75 0.82 0.92 0.96 1.16 1.17 1.23 1.38 1.4 1.59 1.61 1.94 2.01 2.16 2.41 2.59 3.07 3.53 3.76 4.75</p>
+<p><span class="math inline">\(Q_1\)</span>: El dato en la posición <span class="math inline">\(25 \cdot 0.25 = 6.25 \approx 7\)</span> es <span class="math inline">\(0.82 \rightarrow Q_1 = 0.82\)</span></p>
+<p><span class="math inline">\(Q_3\)</span>: El dato en la posición <span class="math inline">\(25 \cdot 0.75 = 18.75 \approx 19\)</span> es <span class="math inline">\(2.16 \rightarrow Q_3 = 2.16\)</span></p>
+<p><span class="math inline">\(R_Q = Q_3 - Q_1 = 2.16 - 0.82 = 1.34\)</span></p>
+<p><span class="math inline">\(I_I = Q_1 - 1.5 \cdot R_Q \Rightarrow I_I = 0.82 - 1.5 \cdot 1.34 = −1.19\)</span> <span class="math inline">\(I_Q = Q_3 + 1.5 \cdot R_Q \Rightarrow I_Q = 2.16 + 1.5 \cdot 1.34 = 4.17\)</span></p>
+<p><span class="math inline">\(E_I = Q_1 - 3 \cdot R_Q \Rightarrow E_I = 0.82 - 3 \cdot 1.34 = −3.2\)</span> <span class="math inline">\(E_Q = Q_3 + 3 \cdot R_Q \Rightarrow E_Q = 2.16 + 3 \cdot 1.34 = 6.18\)</span></p>
+<p>Por lo tanto hay solo un dato anómalo:</p>
+<ul>
+<li>4.75, que es un dato atípico leve (<span class="math inline">\(I_Q &lt; 4.75 &lt; E_Q\)</span>).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución en R">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución en R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de la muestra (en segundos)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>tiempos <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">1.17</span>, <span class="fl">1.61</span>, <span class="fl">1.16</span>, <span class="fl">1.38</span>, <span class="fl">3.53</span>, <span class="fl">1.23</span>, <span class="fl">3.76</span>, <span class="fl">1.94</span>, <span class="fl">0.96</span>, <span class="fl">4.75</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.15</span>, <span class="fl">2.41</span>, <span class="fl">0.71</span>, <span class="fl">0.02</span>, <span class="fl">1.59</span>, <span class="fl">0.19</span>, <span class="fl">0.82</span>, <span class="fl">0.47</span>, <span class="fl">2.16</span>, <span class="fl">2.01</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.92</span>, <span class="fl">0.75</span>, <span class="fl">2.59</span>, <span class="fl">3.07</span>, <span class="fl">1.40</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenamos los datos</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Datos ordenadors: "</span>, <span class="fu">sort</span>(tiempos), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Datos ordenadors:  0.02 0.15 0.19 0.47 0.71 0.75 0.82 0.92 0.96 1.16 1.17 1.23 1.38 1.4 1.59 1.61 1.94 2.01 2.16 2.41 2.59 3.07 3.53 3.76 4.75 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos los cuartiles</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(tiempos, <span class="fl">0.25</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(tiempos, <span class="fl">0.75</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Q1:"</span>, Q1, <span class="st">"</span><span class="sc">\n</span><span class="st">Q3:"</span>, Q3, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Q1: 0.82 
+Q3: 2.16 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rango intercuartílico</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>RQ <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Rango intercuartílico (RQ):"</span>, RQ, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rango intercuartílico (RQ): 1.34 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cotas interiores inferior y superior</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>II <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> RQ</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>IQ <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> RQ</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Límite inferior (II):"</span>, II, <span class="st">"</span><span class="sc">\n</span><span class="st">Límite superior (IQ):"</span>, IQ, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Límite inferior (II): -1.19 
+Límite superior (IQ): 4.17 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cotas exteriores inferior y superior</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>EI <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> RQ</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>EQ <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> RQ</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Límite exterior inferior (EI):"</span>, EI, <span class="st">"</span><span class="sc">\n</span><span class="st">Límite exterior superior (EQ):"</span>, EQ, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Límite exterior inferior (EI): -3.2 
+Límite exterior superior (EQ): 6.18 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificamos los datos anómalos</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>datos_anomalos <span class="ot">&lt;-</span> tiempos[tiempos <span class="sc">&lt;</span> II <span class="sc">|</span> tiempos <span class="sc">&gt;</span> IQ]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(datos_anomalos) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos atípicos leves: Ninguno</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos atípicos leves:"</span>, datos_anomalos, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Datos atípicos leves: 4.75 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificamos los datos anómalos extremos</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>datos_extremos <span class="ot">&lt;-</span> tiempos[tiempos <span class="sc">&lt;</span> EI <span class="sc">|</span> tiempos <span class="sc">&gt;</span> EQ]</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(datos_extremos) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos atípicos extremos: Ninguno</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos atípicos extremos:"</span>, datos_extremos, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Datos atípicos extremos: Ninguno</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># También podemos usar un diagrama de cajas y bigotes para visualizar los datos anómalos</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tiempos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"Diagrama de cajas y bigotes de tiempos de ejecución"</span>, <span class="at">xlab =</span> <span class="st">"Tiempo (segundos)"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Ejercicios-t1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Justifique y calcule la medida de tendencia central más representativa del conjunto total de datos y del conjunto sin los datos anómalos.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Como hemos visto en clase, la media es muy sensible a los datos anómalos, por lo que la medida de tendencia central más representativa es la mediana.</p>
+<p>Para el conjunto total de datos, la mediana es: <span class="math inline">\(Me = 1.38\)</span> (dato en la posición 13).</p>
+<p>Para el conjunto total de datos, la media es:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{\sum{x_i \cdot n_i}}{N} = \frac{1.17 + 1.61 + ... + 3.07 + 1.40}{25} = \frac{40.75}{25} = 1.63
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución en R">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución en R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Media: "</span>, <span class="fu">mean</span>(tiempos), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Media:  1.63 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mediana: "</span>, <span class="fu">median</span>(tiempos), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mediana:  1.38 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-5" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-5">Ejercicio 5</h2>
+<p>Calcular los valores que se piden en función de los datos:</p>
+<ol type="a">
+<li>Si <span class="math inline">\(N = 2\)</span>, <span class="math inline">\(\bar{x} = 2.6\)</span> y <span class="math inline">\(\sigma = 1.1\)</span>, ¿cuáles son los datos de la muestra?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\sigma = \sqrt{\sigma^2} = \sqrt{\sum_{i=1}^{k}{(x_i - \bar{x})^2 \cdot f_i}}
+\]</span></p>
+<p><span class="math display">\[
+1.1 = \sqrt{(x_1 - 2.6)^2 \cdot \frac{1}{2} + (x_2 - 2.6)^2 \cdot \frac{1}{2}}
+\]</span></p>
+<p><span class="math display">\[
+1.21 = \frac{(x_1 - 2.6)^2 + (x_2 - 2.6)^2}{2}
+\]</span></p>
+<p><span class="math display">\[
+2.42 = (x_1 - 2.6)^2 + (x_2 - 2.6)^2
+\]</span></p>
+<p>Tenemos dos incógnitas y una ecuación, por lo que necesitamos otra ecuación:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{x_1 + x_2}{2} = 2.6 \Rightarrow x_1 + x_2 = 5.2
+\]</span></p>
+<p>Resolviendo el sistema de ecuaciones:</p>
+<p><span class="math display">\[
+\begin{cases}
+x_1 + x_2 = 5.2 \\
+(x_1 - 2.6)^2 + (x_2 - 2.6)^2 = 2.42
+\end{cases} \\
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+x_2 &amp;= 5.2 - x_1 \\
+2.42 &amp;= (x_1 - 2.6)^2 + (5.2 - x_1 - 2.6)^2 \\
+2.42 &amp;= (x_1 - 2.6)^2 + (2.6 - x_1)^2 \\
+2.42 &amp;= 2(x_1 - 2.6)^2 \\
+1.21 &amp;= (x_1 - 2.6)^2 \\
+x_1 - 2.6 &amp;= \pm \sqrt{1.21} \\
+x_1 &amp;= 2.6 \pm 1.1 \\
+x_1 &amp;= 3.7 \quad \text{o} \quad x_1 = 1.5 \\
+x_2 &amp;= 5.2 - x_1 \\
+x_2 &amp;= 1.5 \quad \text{o} \quad x_2 = 3.7
+\end{aligned}
+\]</span></p>
+<p>Los datos de la muestra son: <span class="math inline">\(1.5\)</span> y <span class="math inline">\(3.7\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Si <span class="math inline">\(CV = 0.5\)</span>, <span class="math inline">\(\bar{x} = 2\)</span> y <span class="math inline">\(m_3 = 14\)</span>, ¿cuánto vale <span class="math inline">\(\mu_3\)</span>?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+CV = \frac{\sigma}{|\bar{x}|} \Rightarrow \sigma = CV \cdot |\bar{x}|
+\]</span></p>
+<p><span class="math display">\[
+\sigma = 0.5 \cdot 2 = 1
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+\begin{aligned}
+\mu_3 &amp;= \sum_{i=0}^{k}{(x_i - \bar{x})^3 \cdot f_i} = \sum_{i=0}^{k}{(x_i^3 - 3 x_i^2 \bar{x} + 3 x_i^2 \bar{x}^3 - \bar{x}^3) \cdot f_i} =\\
+&amp;= \sum_{i=0}^{k}{x_i^3 f_i} - 3\sum_{i=0}^{k}{x_i^2 \bar{x} f_i} + 3\sum_{i=0}^{k}{x_i \bar{x}^2 f_i} - \sum_{i=0}^{k}{\bar{x}^3 f_i} =\\
+&amp;= m_3 - 3\bar{x}m_2 + 3\bar{x}^3 - \bar{x}^3 = m_3 - 3\bar{x}m_2 + 2\bar{x}^3
+\end{aligned}
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+m_2 = \sigma^2 + \bar{x}^2 = 1^2 + 2^2 = 5
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+\mu_3 = m_3 - 3\bar{x}m_2 + 2\bar{x}^3 = 14 - 3 \cdot 2 \cdot 5 + 2 \cdot 2^3 = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-13" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-13">Ejercicio 13</h2>
+<p><strong>Sentido crítico.</strong> Antes de extraer conclusiones de unos resultados estadísticos, conviene examinar detenidamente los valores numéricos obtenidos. El gran número de operaciones realizadas y el volumen de datos manejados son fuentes de error que inciden en los resultados. Un poco de sentido crítico puede ayudar a determinar si unos resultados son consistentes con los datos del problema. En este ejercicio se propone una serie de casos donde el resultado numérico no es correcto. Se trata de explicar razonadamente la inconsistencia del resultado en función de los datos.</p>
+<ol type="a">
+<li>El número medio de accesos a una página web es <span class="math inline">\(-3\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La media no puede ser negativa, ya que el número de accesos es una variable de conteo no negativa. Esto indica un error en los datos o en los cálculos.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>La mediana del número de hijos de las familias españolas es <span class="math inline">\(2.1\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La mediana debe ser un número entero, ya que representa el valor central en una distribución de datos discretos (número de hijos). Un valor decimal como <span class="math inline">\(2.1\)</span> no tiene sentido; si fuera decimal, solo podría ser <span class="math inline">\(2.5\)</span> cuando hay un número par de observaciones y los valores centrales son 2 y 3.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>La moda del número de hijos es <span class="math inline">\(1.5\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La moda debe ser un número entero, ya que representa el valor más frecuente en una variable discreta como el número de hijos. Un valor decimal no es posible en este contexto.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="a">
+<li>El cuartil <span class="math inline">\(Q_3\)</span> es <span class="math inline">\(28\)</span> y el cuartil <span class="math inline">\(Q_1\)</span> es <span class="math inline">\(32\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Esto es incorrecto porque el primer cuartil (Q1) siempre debe ser menor o igual que el tercer cuartil (Q3), ya que Q1 marca el 25% de los datos y Q3 el 75%. Por definición, Q1 ≤ Q3 en cualquier distribución.</p>
+</div>
+</div>
+</div>
+<ol start="5" type="a">
+<li>El centil <span class="math inline">\(P_1\)</span> es <span class="math inline">\(32\)</span> y el decil <span class="math inline">\(D_1\)</span> es <span class="math inline">\(28\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Esto es incorrecto porque el primer percentil (P1) siempre debe ser menor o igual que el primer decil (D1), ya que P1 representa el valor por debajo del cual se encuentra el 1% de los datos, mientras que D1 lo hace para el 10%. Por lo tanto, P1 ≤ D1.</p>
+</div>
+</div>
+</div>
+<ol start="6" type="a">
+<li>La varianza es <span class="math inline">\(-100\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La varianza no puede ser negativa, ya que se define como el promedio de los cuadrados de las desviaciones respecto a la media, lo cual siempre resulta en un valor no negativo. Una varianza negativa indica un error en los datos, en los cálculos o en la interpretación de los resultados. Además, una dispersión negativa no tiene sentido, ya que la dispersión mide la variabilidad de los datos, que siempre es positiva o cero.</p>
+</div>
+</div>
+</div>
+<ol start="7" type="a">
+<li>La media es <span class="math inline">\(10\)</span>, la mediana <span class="math inline">\(12\)</span> y la desviación típica es <span class="math inline">\(0\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Si la desviación típica es <span class="math inline">\(0\)</span>, significa que todos los valores de la muestra son iguales a la media. Por lo tanto, si la media es <span class="math inline">\(10\)</span>, la mediana también debe ser <span class="math inline">\(10\)</span>. Tener una mediana de <span class="math inline">\(12\)</span> es inconsistente con una desviación típica de <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="8" type="a">
+<li>La expresión <span class="math inline">\(g_2 + 3\)</span> toma un valor negativo.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(g_2 = \frac{\mu_4}{\sigma^4} - 3\)</span></p>
+<p>Como <span class="math inline">\(\mu_4 = \sum{(x_i - \bar{x})^4} \cdot f_i \geq 0\)</span> y <span class="math inline">\(\sigma^4 &gt; 0\)</span>, entonces:</p>
+<p><span class="math inline">\(g_2 + 3 = \frac{\mu_4}{\sigma^4} \geq 0\)</span></p>
+<p>Por tanto, <span class="math inline">\(g_2 + 3\)</span> no puede ser negativo.</p>
+</div>
+</div>
+</div>
+<p>En ocasiones, determinar si los resultados de un problema son coherentes con los datos, no es tan directo como en los apartados anteriores. Por ejemplo, supongamos que en una muestra de <span class="math inline">\(200\)</span> observaciones, se obtiene que la media es <span class="math inline">\(35\)</span> y la varianza es <span class="math inline">\(7\)</span>.</p>
+<ol type="i">
+<li>¿Son coherentes estos resultados, si sabemos que el <span class="math inline">\(23\,\%\)</span> de las observaciones toma el valor <span class="math inline">\(0\)</span>? Intenta razonar la respuesta.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Si el <span class="math inline">\(23\,\%\)</span> de las observaciones toma el valor <span class="math inline">\(0\)</span>, entonces hay <span class="math inline">\(0.23 \cdot 200 = 46\)</span> observaciones con valor <span class="math inline">\(0\)</span>. Para que la media sea 35 con tantos ceros, los valores restantes deben ser muy altos. Pero para que la varianza sea tan pequeña (7), los datos no pueden estar muy dispersos, por lo que tenemos una incoherencia en los datos.</p>
+</div>
+</div>
+</div>
+<ol start="10" type="a">
+<li>Calcule el valor de la varianza de la muestra, sin considerar los valores nulos, pues el resultado indica la incoherencia de los datos del problema.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Para poder calcular la varianza sin considerar los valores nulos, necesitamos calcular los momentos ordinarios <span class="math inline">\(m_1'\)</span> y <span class="math inline">\(m_2'\)</span> de las <span class="math inline">\(154\)</span> observaciones restantes (200 - 46 = 154).</p>
+<p>La media de las <span class="math inline">\(200\)</span> observaciones es <span class="math inline">\(35\)</span>, por lo que la suma total de todas las observaciones es:</p>
+<p><span class="math display">\[
+\sum_{i=0}^k{x_i} = \bar{x} \cdot N = 35 \cdot 200 = 7000
+\]</span></p>
+<p>Si eliminamos las <span class="math inline">\(46\)</span> observaciones con valor <span class="math inline">\(0\)</span>, la suma de las restantes <span class="math inline">\(154\)</span> observaciones debe ser <span class="math inline">\(7000\)</span>.</p>
+<p><span class="math display">\[
+\sum{x_i'} = 7000 \quad \text{donde} \quad N' = 154
+\]</span></p>
+<p>Por lo tanto, la media de las <span class="math inline">\(154\)</span> observaciones restantes es:</p>
+<p><span class="math display">\[
+m_1' = \bar{x}' = \frac{\sum{x_i'}}{N'} = \frac{7000}{154} \approx 45.45
+\]</span></p>
+<p>Sabemos que la varianza de las <span class="math inline">\(200\)</span> observaciones es <span class="math inline">\(7\)</span>, por lo que:</p>
+<p><span class="math display">\[
+\sigma^2 = 7 = \sum{x_i^2 \cdot f_i} - \bar{x}^2 = \sum{x_i^2 \cdot f_i} - 35^2 \Rightarrow \sum{x_i^2 \cdot f_i} = 7 + 1225 = 1232
+\]</span></p>
+<p><span class="math display">\[
+\sum{x_i^2 \cdot f_i} = 1232 \Rightarrow \sum{x_i^2} = 1232 \cdot 200 = 246400
+\]</span></p>
+<p>Si eliminamos las <span class="math inline">\(46\)</span> observaciones con valor <span class="math inline">\(0\)</span>, la suma de los cuadrados de las restantes <span class="math inline">\(154\)</span> observaciones debe ser también <span class="math inline">\(246400\)</span>, entonces:</p>
+<p><span class="math display">\[
+m_2' = \frac{\sum{(x_i')^2}}{N'} = \frac{246400}{154} = 1600
+\]</span></p>
+<p>Por lo tanto, la varianza de las <span class="math inline">\(154\)</span> observaciones restantes es:</p>
+<p><span class="math display">\[
+(\sigma')^2 = m_2' - (m_1')^2 = 1600 - 45.45^2 \approx −465.70
+\]</span></p>
+<p>La varianza de la muestra sin considerar los valores nulos es negativa, lo cual no tiene sentido, por lo que los resultados no son coherentes con los datos del problema.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="ejercicios-de-repaso" class="level1">
+<h1>Ejercicios de Repaso</h1>
+<section id="ejercicio-8" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-8">Ejercicio 8</h2>
+<p>Se han medido los pesos y las estaturas de 8 personas, obteniéndose los datos siguientes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Personas</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">E</th>
+<th style="text-align: right;">F</th>
+<th style="text-align: right;">G</th>
+<th style="text-align: right;">H</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pesos en Kg.</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">71</td>
+</tr>
+<tr class="even">
+<td>Alturas en cm.</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">171</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">180</td>
+</tr>
+</tbody>
+</table>
+<p>¿qué variable está más dispersa, el peso o la altura?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Para comparar dispersiones utilizamos el coeficiente de variación (<span class="math inline">\(CV\)</span>):</p>
+<p><span class="math display">\[
+CV = \frac{\sigma}{|\bar{x}|}
+\]</span></p>
+<p><span class="math display">\[
+\sigma = \sqrt{\sum\frac{(x_i - \bar{x})^2 \cdot n_i}{N}} = \sqrt{\sum{(x_i - \bar{x})^2 \cdot f_i}}
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+\bar{x}_{pesos} = \frac{65+60+65+63+68+70+66+71}{8} = 66
+\]</span></p>
+<p><span class="math display">\[
+\bar{x}_{alturas} = \frac{170+150+168+170+175+171+160+180}{8} = 168
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+\sigma_{pesos} = \sqrt{\frac{(65-66)^2 + ... + (71-66)^2}{8}} = \sqrt{\frac{92}{8}} \approx 10.22
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{alturas} = \sqrt{\frac{(170-168)^2 + ... + (180-168)^2}{8}} = \sqrt{\frac{598}{8}} = 74.75
+\]</span></p>
+<hr>
+<p><span class="math display">\[
+CV_{pesos} = \frac{10.22}{66} = 0.155
+\]</span></p>
+<p><span class="math display">\[
+CV_{alturas} = \frac{74.75}{168} = 0.445
+\]</span></p>
+<p>Por lo tanto la variable que está más dispersa es la altura, ya que su coeficiente de variación es mayor.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-12" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-12">Ejercicio 12</h2>
+<p>Si <span class="math inline">\(X\)</span> es una variable estadística e <span class="math inline">\(Y = X - \bar{x}\)</span>, determine qué afirmaciones son verdaderas:</p>
+<ol type="a">
+<li>La media de <span class="math inline">\(Y\)</span> es 0.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(\bar{x}\)</span> es la media de la variable <span class="math inline">\(X\)</span>, entonces <span class="math inline">\(a + b\bar{x}\)</span> es la media aritmética de <span class="math inline">\(a + bX\)</span> <span class="math inline">\(a = -\bar{x}\)</span>, <span class="math inline">\(b = 1\)</span> <span class="math inline">\(\Rightarrow\)</span> La media de la variable <span class="math inline">\(Y\)</span> es <span class="math inline">\(-\bar{x} + \bar{x} = 0\)</span></p>
+<p>Por lo tanto esta afirmación es verdadera ✅</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>La media de <span class="math inline">\(X\)</span> coincide con la media de <span class="math inline">\(Y\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Falso ❌, a menos que la media de la variable <span class="math inline">\(X\)</span> sea 0</p>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li><span class="math inline">\(Y\)</span> es la variable tipificada de <span class="math inline">\(X\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Falso ❌. Para que <span class="math inline">\(Y\)</span> sea la variable tipificada de <span class="math inline">\(X\)</span>, la fórmula debería ser <span class="math inline">\(Y = \frac{X - \bar{x}}{\sigma}\)</span>, donde <span class="math inline">\(\sigma\)</span> es la desviación típica de <span class="math inline">\(X\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="a">
+<li>La varianza de <span class="math inline">\(X\)</span> y la varianza de <span class="math inline">\(Y\)</span> coinciden.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Verdadero✅. La varianza y la desviación típica son independientes del cambio de origen.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ejercicio-14" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-14">Ejercicio 14</h2>
+<p>En cada caso, determinar el tipo de distribución, organizar los datos en una tabla de frecuencias y representar gráficamente la distribución. También se pide calcular algunas medidas de tendencia central, medidas de dispersión, de simetría y de apuntamiento.</p>
+<ol type="a">
+<li>Tiempo de espera (redondeado en minutos) de un conmutador, para cierto tren subterráneo:</li>
+</ol>
+<div style="text-align:center">
+<pre><code>3 4 1 0 2 2</code></pre>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>Tipo de distribución</strong>: La variable es cuantitativa discreta, ya que el tiempo de espera se mide en minutos y no toma valores intermedios (como 2.5 minutos).</p>
+<p><strong>Tabla de frecuencias</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Tiempo de espera (min)</th>
+<th style="text-align: center;">Frecuencia absoluta</th>
+<th style="text-align: center;">Frecuencia relativa</th>
+<th style="text-align: center;">Frecuencia acumulada</th>
+<th style="text-align: center;">Frecuencia relativa acumulada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.33</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Medidas de tendencia central</strong>:</p>
+<ul>
+<li><p>Media: <span class="math inline">\(\bar{x} = \frac{0 \cdot 1 + 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 1 + 4 \cdot 1}{6} = \frac{0 + 1 + 4 + 3 + 4}{6} = \frac{12}{6} = 2\)</span></p></li>
+<li><p>Mediana: <span class="math inline">\(Me = 2\)</span> (dato en la posición 3.5)</p></li>
+<li><p>Moda: <span class="math inline">\(Mo = 2\)</span> (valor más frecuente)</p></li>
+</ul>
+<p><strong>Medidas de dispersión</strong>:</p>
+<ul>
+<li><p>Varianza: <span class="math inline">\(\sigma^2 = m_2 - m_1^2 = \frac{0^2 \cdot 1 + 1^2 \cdot 1 + 2^2 \cdot 2 + 3^2 \cdot 1 + 4^2 \cdot 1}{6} - 2^2 \approx 1.67\)</span></p></li>
+<li><p>Desviación típica: <span class="math inline">\(\sigma = \sqrt{1.67} \approx 1.29\)</span></p></li>
+<li><p>Varianza muestral: <span class="math inline">\(s^2 = \frac{6}{5} \cdot 1.67 \approx 2\)</span></p></li>
+<li><p>Desviación típica muestral: <span class="math inline">\(s = \sqrt{2} \approx 1.41\)</span></p></li>
+</ul>
+<p><strong>Medidas de simetría y apuntamiento</strong>:</p>
+<ul>
+<li><p>Como <span class="math inline">\(\bar{x} = Me = Mo\)</span>, la distribución es simétrica (asimetría <span class="math inline">\(g_1 = 0\)</span>).</p></li>
+<li><p>Curtosis: <span class="math inline">\(g_2 = \frac{\mu_4}{\sigma^4} - 3 &lt; 0 \Rightarrow\)</span> menos apuntamiento que la normal.</p></li>
+</ul>
+<p><span class="math display">\[
+\mu_4 = \sum{(x_i - \bar{x})^4 \cdot f_i} = \frac{(0-2)^4 \cdot 1 + ... + (4-2)^4 \cdot 1}{6} \approx 5.67
+\]</span></p>
+<p><span class="math display">\[
+g_2 = \frac{5.67}{(1.29)^4} - 3 \approx -0.96
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución en R">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución en R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>tiempos_espera <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Representación gráfica</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(tiempos_espera), <span class="at">main =</span> <span class="st">"Tiempo de espera en minutos"</span>, <span class="at">xlab =</span> <span class="st">"Tiempo de espera (min)"</span>, <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>, <span class="at">col =</span> coul)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Ejercicios-t1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de tendencia central</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">mean</span>(tiempos_espera)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>mediana <span class="ot">&lt;-</span> <span class="fu">median</span>(tiempos_espera)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>moda <span class="ot">&lt;-</span> <span class="fu">sort</span>(tiempos_espera)[<span class="fu">length</span>(tiempos_espera) <span class="sc">/</span> <span class="dv">2</span>]</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Media: "</span>, media, <span class="st">", Mediana: "</span>, mediana, <span class="st">", Moda: "</span>, moda,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Media:  2 , Mediana:  2 , Moda:  2 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de dispersión</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>varp<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">var</span>(x)<span class="sc">*</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">/</span><span class="fu">length</span>(x) <span class="co"># varianza poblacional</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> <span class="fu">varp</span>(tiempos_espera) <span class="co"># Varianza poblacional</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>desviacion_tipica <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(varianza)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>varianza_muestral <span class="ot">&lt;-</span> <span class="fu">var</span>(tiempos_espera) <span class="co"># Varianza muestral</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>desviacion_tipica_muestral <span class="ot">&lt;-</span> <span class="fu">sd</span>(tiempos_espera)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Varianza: "</span>, varianza, <span class="st">", Desviación típica: "</span>, desviacion_tipica,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Varianza:  1.666667 , Desviación típica:  1.290994 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Varianza muestral: "</span>, varianza_muestral, <span class="st">", Desviación típica muestral: "</span>, desviacion_tipica_muestral,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Varianza muestral:  2 , Desviación típica muestral:  1.414214 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de simetría y apuntamiento</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># para calcular g1 y g2 necesitamos definir las funciones de momento central y desviación típica poblacional</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>sdp<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">sqrt</span>(<span class="fu">varp</span>(x)) <span class="co"># desviación típica poblacional</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>gmomento<span class="ot">=</span><span class="cf">function</span>(x,c,r) <span class="fu">mean</span>((x<span class="sc">-</span>c)<span class="sc">^</span>r) <span class="co"># momento general</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>cmomento<span class="ot">=</span><span class="cf">function</span>(x,r) <span class="fu">gmomento</span>(x,<span class="fu">mean</span>(x),r) <span class="co"># momento central de orden r</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>g1<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">cmomento</span>(x,<span class="dv">3</span>)<span class="sc">/</span><span class="fu">sdp</span>(x)<span class="sc">^</span><span class="dv">3</span> <span class="co"># asimetría</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>g2<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">cmomento</span>(x,<span class="dv">4</span>)<span class="sc">/</span><span class="fu">sdp</span>(x)<span class="sc">^</span><span class="dv">4-3</span> <span class="co"># curtosis</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>asimetria <span class="ot">&lt;-</span> <span class="fu">g1</span>(tiempos_espera)</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>curtosis <span class="ot">&lt;-</span> <span class="fu">g2</span>(tiempos_espera)</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(asimetria <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución es asimétrica positiva (g1 ="</span>, asimetria, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(asimetria <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución es asimétrica negativa (g1 ="</span>, asimetria, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución es simétrica (g1 ="</span>, asimetria, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La distribución es simétrica (g1 = 0 )</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(curtosis <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución tiene más apuntamiento que la normal (g2 ="</span>, curtosis, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(curtosis <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución tiene menos apuntamiento que la normal (g2 ="</span>, curtosis, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"La distribución tiene el mismo apuntamiento que la normal (g2 ="</span>, curtosis, <span class="st">")</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La distribución tiene menos apuntamiento que la normal (g2 = -0.96 )</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>En ciertos entornos, los aceros inoxidables son especialmente susceptibles al agrietamiento. A continuación se relacionan las causas asignables y el número de casos detectados correspondientes a estas causas, en un estudio realizado entre 200 aceros observados.</li>
+</ol>
+<div style="text-align:center">
+<pre><code>Entorno húmedo         144
+Entorno seco            45
+Defectos de materiales   4
+Defectos de soldadura    7</code></pre>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>La variable es cualitativa nominal. De medidas de posición solo vale la moda. Para representarla gráficamente, podemos usar diagrama de pareto:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>causas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Entorno húmedo"</span>, <span class="st">"Entorno seco"</span>, <span class="st">"Defectos de materiales"</span>, <span class="st">"Defectos de soldadura"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>frecuencias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">144</span>, <span class="dv">45</span>, <span class="dv">4</span>, <span class="dv">7</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar los datos de mayor a menor</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>orden <span class="ot">&lt;-</span> <span class="fu">order</span>(frecuencias, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>causas <span class="ot">&lt;-</span> causas[orden]</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>frecuencias <span class="ot">&lt;-</span> frecuencias[orden]</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico de pareto</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="fu">pareto.chart</span>(frecuencias, <span class="at">names.arg =</span> causas, <span class="at">col =</span> coul, <span class="at">main =</span> <span class="st">"Diagrama de Pareto de causas de agrietamiento en aceros"</span>, <span class="at">ylab =</span> <span class="st">"Número de casos"</span>, <span class="at">xlab =</span> <span class="st">"Causas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Ejercicios-t1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+Pareto chart analysis for frecuencias
+    Frequency Cum.Freq. Percentage Cum.Percent.
+  A     144.0     144.0       72.0         72.0
+  B      45.0     189.0       22.5         94.5
+  C       7.0     196.0        3.5         98.0
+  D       4.0     200.0        2.0        100.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li>Contenido de carbono (%) del carbón mineral:</li>
+</ol>
+<pre><code>87  86  85  87  86  87  86  81  77  85
+86  84  83  83  82  84  83  79  82  73</code></pre>
+<ol start="4" type="a">
+<li>Consumo de combustible (litros/100 km a 90 km/h) de seis automóviles de la misma marca:</li>
+</ol>
+<pre><code>6'7  6'3  6'5  6'5  6'4  6'6</code></pre>
+<ol start="5" type="a">
+<li>Número de hojas de papel, por encima y por debajo del número deseado de 100 por paquete, en un proceso de empaquetado:</li>
+</ol>
+<pre><code>0  -1  0  0  1  1  2  0  1  0</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
