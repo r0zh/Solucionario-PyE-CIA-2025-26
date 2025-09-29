@@ -17,7 +17,7 @@ La fiabilidad de un ordenador se mide en términos de la vida de un componente d
 
 a)  Determinar la población de interés, los individuos y la muestra.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Población: Componentes de ordenadores
 
 Individuos: Cada componente
@@ -27,7 +27,7 @@ Muestra: 100 componentes
 
 b)  Determinar el carácter, su tipo y las posibles modalidades.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Carácter ($N$): Tiempo de vida
 
 Tipo: Cuantitativo continuo
@@ -37,7 +37,7 @@ Posibles modalidaes: Cualquier valor real
 
 c)  ¿Cómo podría utilizarse la información de la muestra para estimar la fiabilidad del sistema?
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Podríamos obtener la media del tiempo de vida y así poder estimar aproximadamente cuanto durará cada componente.
 :::
 
@@ -49,19 +49,19 @@ Para cada uno de los siguientes conjuntos de datos, indique si son cualitativos 
 
 a)  Tiempos de llegada de 16 ondas sísmicas reflejadas.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Cuantitativo continuo.
 :::
 
 b)  Marcas de calculadoras empleadas por 100 estudiantes de Ingeniería.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Cualitativo nominal
 :::
 
 c)  Número de caracteres impresos por línea de salida de computadora en 20 impresoras de línea. Compañía aérea.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Cuantitativo discreto
 :::
 
@@ -75,7 +75,7 @@ La siguiente tabla recoge algunos de los datos recogidos durante 50 días, del n
 
 a)  Interprete y complete los datos de la tabla.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 | $x_i$     | $n_i$ | $f_i$ | $N_i$ | $F_i$ |
 |-----------|-------|-------|-------|-------|
 | \[0,20)   | 4     | 0.08  | 4     | 0.08  |
@@ -89,7 +89,7 @@ a)  Interprete y complete los datos de la tabla.
 
 b)  Represente gráficamente la distribución de los datos.
 
-::: {.callout-tip title="Solución en R" collapse="true"}
+::: {.callout-tip title="Solución en R" collapse="false"}
 ```{r}
 #| label: fig-histograma-correos
 #| fig-align: center
@@ -112,7 +112,7 @@ barplot(frecuencias,
 
 c)  Calcule la Media, la Mediana y la Moda de la distribución de los datos.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 **Media**:
 
 $$
@@ -154,7 +154,7 @@ $$
 Por lo tanto, podemos decir que la moda es 45 o se encuentra en el intervalo (40,50\] ya que es el que tiene la mayor densidad de frecuencia.
 :::
 
-::: {.callout-tip title="Solución en R" collapse="true"}
+::: {.callout-tip title="Solución en R" collapse="false"}
 ```{r}
 # Datos de la tabla
 n_i <- c(4, 7, 10, 9, 8, 7, 5) # Frecuencias
@@ -199,7 +199,7 @@ Detectar y clasificar los posibles datos anómalos de la siguiente muestra del t
 | 0.15 | 2.41 | 0.71 | 0.02 | 1.59 | 0.19 | 0.82 | 0.47 | 2.16 | 2.01 |
 | 0.92 | 0.75 | 2.59 | 3.07 | 1.40 |      |      |      |      |      |
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Para detectar y clasificar posibles datos anómalos utilizaremos el Test de Tukey, por lo que necesitamos calcular $Q_1$, $Q_3$, $R_Q$, $I_I$, $I_S$, $E_I$ y $E_S$
 
 Primero ordenamos la tabla:
@@ -221,7 +221,7 @@ Por lo tanto hay solo un dato anómalo:
 -   4.75, que es un dato atípico leve ($I_Q < 4.75 < E_Q$).
 :::
 
-::: {.callout-tip title="Solución en R" collapse="true"}
+::: {.callout-tip title="Solución en R" collapse="false"}
 ```{r}
 # Datos de la muestra (en segundos)
 tiempos <- c(
@@ -277,7 +277,7 @@ boxplot(tiempos, horizontal = TRUE, main = "Diagrama de cajas y bigotes de tiemp
 
 Justifique y calcule la medida de tendencia central más representativa del conjunto total de datos y del conjunto sin los datos anómalos.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Como hemos visto en clase, la media es muy sensible a los datos anómalos, por lo que la medida de tendencia central más representativa es la mediana.
 
 Para el conjunto total de datos, la mediana es: $Me = 1.38$ (dato en la posición 13).
@@ -289,7 +289,7 @@ $$
 $$
 :::
 
-::: {.callout-tip title="Solución en R" collapse="true"}
+::: {.callout-tip title="Solución en R" collapse="false"}
 ```{r}
 cat("Media: ", mean(tiempos), "\n")
 cat("Mediana: ", median(tiempos), "\n")
@@ -304,7 +304,7 @@ Calcular los valores que se piden en función de los datos:
 
 a)  Si $N = 2$, $\bar{x} = 2.6$ y $\sigma = 1.1$, ¿cuáles son los datos de la muestra?
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 $$
 \sigma = \sqrt{\sigma^2} = \sqrt{\sum_{i=1}^{k}{(x_i - \bar{x})^2 \cdot f_i}}
 $$
@@ -356,7 +356,7 @@ Los datos de la muestra son: $1.5$ y $3.7$.
 
 b)  Si $CV = 0.5$, $\bar{x} = 2$ y $m_3 = 14$, ¿cuánto vale $\mu_3$?
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 $$
 CV = \frac{\sigma}{|\bar{x}|} \Rightarrow \sigma = CV \cdot |\bar{x}|
 $$
@@ -396,49 +396,49 @@ $$
 
 a)  El número medio de accesos a una página web es $-3$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 La media no puede ser negativa, ya que el número de accesos es una variable de conteo no negativa. Esto indica un error en los datos o en los cálculos.
 :::
 
 b)  La mediana del número de hijos de las familias españolas es $2.1$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 La mediana debe ser un número entero, ya que representa el valor central en una distribución de datos discretos (número de hijos). Un valor decimal como $2.1$ no tiene sentido; si fuera decimal, solo podría ser $2.5$ cuando hay un número par de observaciones y los valores centrales son 2 y 3.
 :::
 
 c)  La moda del número de hijos es $1.5$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 La moda debe ser un número entero, ya que representa el valor más frecuente en una variable discreta como el número de hijos. Un valor decimal no es posible en este contexto.
 :::
 
 d)  El cuartil $Q_3$ es $28$ y el cuartil $Q_1$ es $32$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Esto es incorrecto porque el primer cuartil (Q1) siempre debe ser menor o igual que el tercer cuartil (Q3), ya que Q1 marca el 25% de los datos y Q3 el 75%. Por definición, Q1 ≤ Q3 en cualquier distribución.
 :::
 
 e)  El centil $P_1$ es $32$ y el decil $D_1$ es $28$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Esto es incorrecto porque el primer percentil (P1) siempre debe ser menor o igual que el primer decil (D1), ya que P1 representa el valor por debajo del cual se encuentra el 1% de los datos, mientras que D1 lo hace para el 10%. Por lo tanto, P1 ≤ D1.
 :::
 
 f)  La varianza es $-100$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 La varianza no puede ser negativa, ya que se define como el promedio de los cuadrados de las desviaciones respecto a la media, lo cual siempre resulta en un valor no negativo. Una varianza negativa indica un error en los datos, en los cálculos o en la interpretación de los resultados. Además, una dispersión negativa no tiene sentido, ya que la dispersión mide la variabilidad de los datos, que siempre es positiva o cero.
 :::
 
 g)  La media es $10$, la mediana $12$ y la desviación típica es $0$.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 Si la desviación típica es $0$, significa que todos los valores de la muestra son iguales a la media. Por lo tanto, si la media es $10$, la mediana también debe ser $10$. Tener una mediana de $12$ es inconsistente con una desviación típica de $0$.
 :::
 
 h)  La expresión $g_2 + 3$ toma un valor negativo.
 
-::: {.callout-tip title="Solución" collapse="true"}
+::: {.callout-tip title="Solución" collapse="false"}
 $g_2 = \frac{\mu_4}{\sigma^4} - 3$
 
 Como $\mu_4 = \sum{(x_i - \bar{x})^4} \cdot f_i \geq 0$ y $\sigma^4 > 0$, entonces:
