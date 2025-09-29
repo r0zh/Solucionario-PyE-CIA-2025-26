@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Solucionario PyE - CIA 2025/26",
-    "section": "",
-    "text": "Tema 1\nTema 2"
-  },
-  {
     "objectID": "Ejercicios-t1.html",
     "href": "Ejercicios-t1.html",
     "title": "Estadística Descriptiva - Ejercicios Tema 1",
@@ -110,5 +103,12 @@
     "title": "Estadística Descriptiva - Ejercicios Tema 2",
     "section": "Ejercicio 4",
     "text": "Ejercicio 4\nEn la elaboración de la siguiente tabla de frecuencias de la variable \\((X, Y)\\) se ha cometido un error.\n\n\n\n\\(Y \\backslash X\\)\n0\n1\n2\n3\n4\n5\n\n\n\n\n\n\\([0,4]\\)\n3\n3\n1\n0\n0\n0\n7\n\n\n\\((4,6]\\)\n3\n4\n2\n0\n0\n0\n9\n\n\n\\((6,8]\\)\n1\n3\n2\n1\n0\n0\n7\n\n\n\\((8,12]\\)\n0\n0\n1\n2\n3\n2\n9\n\n\n\n7\n11\n6\n3\n3\n2\n32\n\n\n\nSe pide:\n\nDetectar y corregir la errata.\n\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\n\n\n\n\\(Y \\backslash X\\)\n0\n1\n2\n3\n4\n5\n\n\n\n\n\n\\([0,4]\\)\n3\n3\n1\n0\n0\n0\n7\n\n\n\\((4,6]\\)\n3\n4\n2\n0\n0\n0\n9\n\n\n\\((6,8]\\)\n1\n3\n2\n1\n0\n0\n7\n\n\n\\((8,12]\\)\n0\n1\n1\n2\n3\n2\n9\n\n\n\n7\n11\n6\n3\n3\n2\n32\n\n\n\n\n\n\n\nRepresentar la distribución condicionada \\(P(Y/X=2)\\) y calcular el sesgo y la curtosis.\n\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\nDistribución condicionada \\(P(Y/X=2)\\):\n\n\n\n\\(L_{i-1} - L_i\\)\n\\(n_i\\)\n\\(f_i\\)\n\\(y_i\\) (marca de clase)\n\n\n\n\n\\([0,4]\\)\n1\n1/6\n2\n\n\n\\((4,6]\\)\n2\n2/6\n5\n\n\n\\((6,8]\\)\n2\n2/6\n7\n\n\n\\((8,12]\\)\n1\n1/6\n10\n\n\n\n6\n\n\n\n\n\nSesgo: Simplemente observando la tabla, podemos ver que la distribución es simétrica, por lo que el sesgo es 0.\nCurtosis:\n\\[\n\\text{Curtosis} = \\frac{\\mu_4}{\\sigma^4} - 3\n\\]\n\\[\n\\bar{x} = 2 \\cdot \\frac{1}{6} + 5 \\cdot \\frac{2}{6} + 7 \\cdot \\frac{2}{6} + 10 \\cdot \\frac{1}{6} = 6\n\\]\n\\[\n\\mu_4 = \\sum{(x_i - \\bar{x})^4 \\cdot f_i} = (2 - 6)^4 \\cdot \\frac{1}{6} + ... + (10 - 6)^4 \\cdot \\frac{1}{6} = 86\n\\]\n\\[\n\\sigma^4 = (\\sigma^2)^2 = (\\sum{(x_i - \\bar{x})^2 \\cdot f_i})^2 = ((2 - 6)^2 \\cdot \\frac{1}{6} + ... + (10 - 6)^2 \\cdot \\frac{1}{6})^2 = 36\n\\]\n\\[\n\\frac{\\mu_4}{\\sigma^4} - 3 = \\frac{86}{36} - 3 \\approx -0.61 &lt; 0 \\Rightarrow \\text{Menos apuntamiento que la normal}\n\\]\n\n\n\n\n\n\n\n\n\nTipSolución en R\n\n\n\n\n\n\n# Datos\ny &lt;- c(2, 5, 5, 7, 7, 10)\n\n# Representación gráfica\nbarplot(table(y), col = coul, main = \"Distribución condicionada P(Y/X=2)\", xlab = \"Y\")\n\n\n\n\n\n\n\n# Medidas de tendencia central\nmedia &lt;- mean(y)\n\n# Medidas de dispersión\nvarp=function(x) var(x)*(length(x)-1)/length(x) # varianza poblacional\nvarianza &lt;- varp(y)\n\n# Medidas de simetría y apuntamiento\n# para calcular g1 y g2 necesitamos definir las funciones de momento central y desviación típica poblacional\nsdp=function(x) sqrt(varp(x)) # desviación típica poblacional\ngmomento=function(x,c,r) mean((x-c)^r) # momento general\ncmomento=function(x,r) gmomento(x,mean(x),r) # momento central de orden r\n\ng1=function(x) cmomento(x,3)/sdp(x)^3 # asimetría\ng2=function(x) cmomento(x,4)/sdp(x)^4-3 # curtosis\n\nasimetria &lt;- g1(y)\ncurtosis &lt;- g2(y)\nif(asimetria &gt; 0) {\n    cat(\"La distribución es asimétrica positiva (g1 =\", asimetria, \")\\n\")\n} else if(asimetria &lt; 0) {\n    cat(\"La distribución es asimétrica negativa (g1 =\", asimetria, \")\\n\")\n} else {\n    cat(\"La distribución es simétrica (g1 =\", asimetria, \")\\n\")\n}\n\nLa distribución es simétrica (g1 = 0 )\n\nif(curtosis &gt; 0) {\n    cat(\"La distribución tiene más apuntamiento que la normal (g2 =\", curtosis, \")\\n\")\n} else if(curtosis &lt; 0) {\n    cat(\"La distribución tiene menos apuntamiento que la normal (g2 =\", curtosis, \")\\n\")\n} else {\n    cat(\"La distribución tiene el mismo apuntamiento que la normal (g2 =\", curtosis, \")\\n\")\n}\n\nLa distribución tiene menos apuntamiento que la normal (g2 = -0.6111111 )\n\n\n\n\n\n\nDetermine la dependencia de las variables.\nCalcular las rectas de regresión de \\(X\\) sobre \\(Y\\) y de \\(Y\\) sobre \\(X\\).\nCalcular el coeficiente de correlación lineal y la varianza residual del modelo lineal \\(Y/X\\)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Solucionario PyE - CIA 2025/26",
+    "section": "",
+    "text": "Tema 1\nTema 2"
   }
 ]
